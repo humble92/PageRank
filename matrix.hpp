@@ -16,9 +16,20 @@ using namespace std;
 class matrix {
 private:
     vector<vector<double>> data;
+
+    //just for study for using array
+    int arg1;
+    int arg2;
+    double *array;
+    double array2[2][2];
 public:
     //default constructor
-    matrix() {
+    matrix() : array2 {{0.0,0.0},{0.0,0.0}}{
+
+        //This is solution for using array
+        arg1 = arg2 = 1;
+        array = new double[arg1 * arg2];
+
         //vector<double> inner(1, 0.0);
         data.push_back({0.0});
     }
