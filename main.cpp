@@ -13,7 +13,12 @@ int main() {
     double a[] = { 10, 20, 30, 40};
     matrix m3(4, a);
 
+    m2.set_value(0,0,2.0);
+    cout << m2.get_value(0,0) << endl;
+    m2.clear();
     m3.clear();
+
+    cout << m2 <<endl;
 
     std::stringstream ss;
     std::string inserted = "This is a sentence.";
