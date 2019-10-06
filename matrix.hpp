@@ -16,20 +16,9 @@ using namespace std;
 class matrix {
 private:
     vector<vector<double>> data;
-
-    //just for study for using array
-    int arg1;
-    int arg2;
-    double *array;
-    double array2[2][2];
 public:
     //default constructor
-    matrix() : array2 {{0.0,0.0},{0.0,0.0}}{
-
-        //This is solution for using array
-        arg1 = arg2 = 1;
-        array = new double[arg1 * arg2];
-
+    matrix() {
         //vector<double> inner(1, 0.0);
         data.push_back({0.0});
     }
@@ -98,10 +87,7 @@ public:
         }
     }
 
-    // automatically destroyed
-//    ~matrix()
-//    {
-//    }
+    //friend istream & operator >> (istream &in,  matrix m) {}
 
     friend ostream & operator << (ostream &out, const matrix m) {
         for (int m1=0 ; m1<m.data.size() ; m1++)
@@ -115,7 +101,29 @@ public:
         return out;
     }
 
-};
+    friend inline bool operator==(const matrix& lhs, const matrix& rhs) {
+        if(lhs.data.size() != rhs.data.size() || lhs.data[0].size() != rhs.data[0].size()) {
+            return false;
+        } else {
+            for (int m1=0 ; m1<lhs.data.size() ; m1++)
+            {
+                for (int m2=0 ; m2<lhs.data[0].size() ; m2++)
+                {
+                    if(lhs.data[m1][m2] != lhs.data[m1][m2])
+                        return false;
+                }
+            }
+        }
+        return true;
+    }
+    friend inline bool operator!=(const matrix& lhs, const matrix& rhs){ return !(lhs == rhs); }
 
+
+    // automatically destroyed
+//    ~matrix()
+//    {
+//    }
+
+};
 
 #endif //PAGERANK_MATRIX_HPP
