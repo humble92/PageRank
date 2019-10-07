@@ -1,32 +1,38 @@
 #include <iostream>
-#include <sstream>
-#include "matrix.hpp"
+#include <limits>
+#include <algorithm>
+#include <cmath>
+#include <cfloat>
 
-using namespace std;
+using std::cout;
+using std::max;
 
-int main() {
+bool areEqualAbs(float a, float b, float epsilon) {
+    return (fabs(a - b) <= epsilon);
+}
 
-    //constructor test
-    matrix m;
-    matrix m1(2);
-    matrix m2(3,4);
-    double a[] = { 10, 20, 30, 40};
-    matrix m3(4, a);
+bool areEqual(float a, float b, float epsilon) {
+    return (fabs(a - b) <= epsilon * std::max(1.0f, std::max(a, b)));
+}
 
-    m2.set_value(0,0,2.0);
-    cout << m2.get_value(0,0) << endl;
-    m2.clear();
-    m3.clear();
+bool areEqualRel(float a, float b, float epsilon) {
+    return (fabs(a - b) <= epsilon * std::max(fabs(a), fabs(b)));
+}
 
-    cout << m2 <<endl;
+int main(int argc, char *argv[])
+{
+    cout << "minimum: " << FLT_MIN      << "\n";
+    cout << "maximum: " << FLT_MAX      << "\n";
+    cout << "epsilon: " << FLT_EPSILON  << "\n";
 
-    //constructor test
-    double b[] = { 10, 20, 30, 40};
-    matrix m4(4, a);
-    matrix m5(4, b);
-
-    if (m4 == m5) cout << "!!";
-    else cout << ":(";
-
-    return 0;
+    float a = 0.0000001f;
+    float b = 0.0000002f;
+    if (areEqualRel(a, b, FLT_EPSILON)) {
+        cout << "are equal a: " << a << " b: " << b << "\n";
+    }
+    a = 1000001.f;
+    b = 1000002.f;
+    if (areEqualRel(a, b, FLT_EPSILON)) {
+        cout << "are equal a: " << a << " b: " << b << "\n";
+    }
 }

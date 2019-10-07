@@ -10,6 +10,7 @@
 #include <vector>
 #include <istream>
 #include <iomanip>
+#include <cfloat>
 
 using namespace std;
 
@@ -59,7 +60,8 @@ public:
             {
                 for (int j=0 ; j < lhs.data[0].size() ; j++)
                 {
-                    if(lhs.data[i][j] != rhs.data[i][j])
+                    //if(lhs.data[i][j] != rhs.data[i][j])
+                    if(fabs(lhs.data[i][j] - rhs.data[i][j]) >= DBL_EPSILON)
                         return false;
                 }
             }
@@ -67,7 +69,6 @@ public:
         return true;
     }
     friend bool operator!=(const matrix& lhs, const matrix& rhs){ return !(lhs == rhs); }
-
 
     // automatically destroyed
 //    ~matrix()
