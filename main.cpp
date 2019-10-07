@@ -29,8 +29,13 @@ int main() {
     --m5;
     cout << m4 <<endl;
     cout << m5 <<endl;
-    if (m4 == m5) cout << "!!";
-        else cout << ":(";
+    if (m4 == m5) cout << "!!" <<endl;
+        else cout << ":(" <<endl;
+
+    matrix m6 = m5;
+    cout << m6 <<endl;
+    m6 = m3;
+    cout << m6 <<endl;
 
     return 0;
 }

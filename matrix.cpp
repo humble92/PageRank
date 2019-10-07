@@ -56,7 +56,7 @@ void matrix::set_value(int m, int n, double val) {
 }
 
 //get value
-double matrix::get_value(int m, int n) {
+const double matrix::get_value(int m, int n) {
     if( m<0 || n<0 || m >= data.size() ||  n >= data[0].size()) {
         throw ("out of range error");
     }

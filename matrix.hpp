@@ -30,11 +30,32 @@ public:
     //constructor matrix(int size, arr[]) where size is int
     matrix(int size, double arr[]);
 
+//    matrix(const matrix& v) {
+//        for (unsigned i = 0; i < v.data.size(); i++) {
+//            data.push_back(vector<double>(v.data[0].size(), 0.0));
+//            for (unsigned j=0 ; j < v.data[0].size() ; j++)
+//            {
+//                data[i][j] = v.data[i][j];
+//            }
+//        }
+//    }
+
+    void mySwap(matrix& first, matrix& second)
+    {
+        swap(first.data, second.data); //using std::swap
+    }
+
+    matrix& operator=(matrix other)
+    {
+        mySwap(*this, other);
+        return *this;
+    }
+
     //set value
     void set_value(int m, int n, double val);
 
     //get value
-    double get_value(int m, int n);
+    const double get_value(int m, int n);
 
     //clear to 0.0
     void clear();
@@ -62,6 +83,11 @@ public:
     // automatically destroyed
 //    ~matrix()
 //    {
+//        for (int i=0 ; i < this->data.size() ; i++)
+//        {
+//            this->data[i].clear();
+//        }
+//        this->data.clear();
 //    }
 
 };
