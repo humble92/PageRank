@@ -39,36 +39,25 @@ public:
     //clear to 0.0
     void clear();
 
+    // operator << overloading
     //friend istream & operator >> (istream &in,  matrix m) {}
-    friend ostream & operator << (ostream &out, const matrix m) {
-        for (int i=0 ; i < m.data.size() ; i++)
-        {
-            for (int j=0 ; j < m.data[0].size() ; j++)
-            {
-                out << setw(5) << m.data[i][j];
-            }
-            out << endl;
-        }
-        return out;
-    }
+    friend ostream & operator << (ostream &out, const matrix m);
 
-    friend bool operator==(const matrix& lhs, const matrix& rhs) {
-        if(lhs.data.size() != rhs.data.size() || lhs.data[0].size() != rhs.data[0].size()) {
-            return false;
-        } else {
-            for (int i=0 ; i < lhs.data.size() ; i++)
-            {
-                for (int j=0 ; j < lhs.data[0].size() ; j++)
-                {
-                    //if(lhs.data[i][j] != rhs.data[i][j])
-                    if(fabs(lhs.data[i][j] - rhs.data[i][j]) >= DBL_EPSILON)
-                        return false;
-                }
-            }
-        }
-        return true;
-    }
-    friend bool operator!=(const matrix& lhs, const matrix& rhs){ return !(lhs == rhs); }
+    // operator ==, != overloading
+    friend bool operator==(const matrix& lhs, const matrix& rhs);
+    friend bool operator!=(const matrix& lhs, const matrix& rhs);
+
+    // Define prefix increment operator.
+    matrix& operator++();
+
+    // Define postfix increment operator.
+    matrix operator++(int);
+
+    // Define prefix decrement operator.
+    matrix& operator--();
+
+    // Define postfix decrement operator.
+    matrix operator--(int);
 
     // automatically destroyed
 //    ~matrix()

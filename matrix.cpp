@@ -74,3 +74,90 @@ void matrix::clear() {
     }
 }
 
+// operator << overloading
+ostream & operator << (ostream &out, const matrix m) {
+    for (int i=0 ; i < m.data.size() ; i++)
+    {
+        for (int j=0 ; j < m.data[0].size() ; j++)
+        {
+            out << setw(8) << m.data[i][j];
+        }
+        out << endl;
+    }
+    return out;
+}
+
+// operator == overloading
+bool operator==(const matrix& lhs, const matrix& rhs) {
+    if(lhs.data.size() != rhs.data.size() || lhs.data[0].size() != rhs.data[0].size()) {
+        return false;
+    } else {
+        for (int i=0 ; i < lhs.data.size() ; i++)
+        {
+            for (int j=0 ; j < lhs.data[0].size() ; j++)
+            {
+                //if(lhs.data[i][j] != rhs.data[i][j])
+                if(fabs(lhs.data[i][j] - rhs.data[i][j]) >= DBL_EPSILON)
+                    return false;
+            }
+        }
+    }
+    return true;
+}
+
+// operator != overloading
+bool operator!=(const matrix& lhs, const matrix& rhs){ return !(lhs == rhs); }
+
+// Define prefix increment operator.
+matrix& matrix::operator++()
+{
+    for (int i=0 ; i < this->data.size() ; i++)
+    {
+        for (int j=0 ; j < this->data[0].size() ; j++)
+        {
+            this->data[i][j] += 1.0;
+        }
+    }
+    return *this;
+}
+
+// Define postfix increment operator.
+matrix matrix::operator++(int)
+{
+    matrix tmp(*this);
+    for (int i=0 ; i < this->data.size() ; i++)
+    {
+        for (int j=0 ; j < this->data[0].size() ; j++)
+        {
+            this->data[i][j] += 1.0;
+        }
+    }
+    return tmp;
+}
+
+// Define prefix decrement operator.
+matrix& matrix::operator--()
+{
+    for (int i=0 ; i < this->data.size() ; i++)
+    {
+        for (int j=0 ; j < this->data[0].size() ; j++)
+        {
+            this->data[i][j] -= 1.0;
+        }
+    }
+    return *this;
+}
+
+// Define postfix decrement operator.
+matrix matrix::operator--(int)
+{
+    matrix tmp(*this);
+    for (int i=0 ; i < this->data.size() ; i++)
+    {
+        for (int j=0 ; j < this->data[0].size() ; j++)
+        {
+            this->data[i][j] -= 1.0;
+        }
+    }
+    return tmp;
+}
