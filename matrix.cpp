@@ -46,6 +46,10 @@ matrix::matrix(int size, double arr[]) {
     }
 }
 
+matrix::matrix(const matrix& v) {
+    data = v.data;
+}
+
 //set value
 void matrix::set_value(int m, int n, double val) {
     if( m<0 || n<0 || m >= data.size() ||  n >= data[0].size()) {
@@ -160,4 +164,126 @@ matrix matrix::operator--(int)
         }
     }
     return tmp;
+}
+
+//Swap function for overloading assignment operator
+void mySwap(matrix& first, matrix& second)
+{
+    swap(first.data, second.data); //using std::swap
+}
+
+//overloading assignment operator
+matrix& matrix::operator=(matrix other)
+{
+    mySwap(*this, other);
+    return *this;
+}
+
+//overload +=
+matrix& matrix::operator+=(const matrix& rhs)
+{
+    if(data.size() != rhs.data.size() || data[0].size() != rhs.data[0].size()) {
+        throw ("mismatch size error");
+    }
+
+    for (int i=0 ; i < data.size() ; i++)
+    {
+        for (int j=0 ; j < data[0].size() ; j++)
+        {
+            data[i][j] += rhs.data[i][j];
+        }
+    }
+    return *this; // return the result by reference
+}
+
+//overload +
+// friends defined inside class body are inline and are hidden from non-ADL lookup
+matrix operator+(matrix lhs, const matrix& rhs)
+{
+    if(lhs.data.size() != rhs.data.size() || lhs.data[0].size() != rhs.data[0].size()) {
+        throw ("mismatch size error");
+    }
+
+    for (int i=0 ; i < lhs.data.size() ; i++)
+    {
+        for (int j=0 ; j < lhs.data[0].size() ; j++)
+        {
+            lhs.data[i][j] += rhs.data[i][j];
+        }
+    }
+    return lhs; // return the result by value (uses move constructor)
+}
+
+//overload -=
+matrix& matrix::operator-=(const matrix& rhs)
+{
+    if(data.size() != rhs.data.size() || data[0].size() != rhs.data[0].size()) {
+        throw ("mismatch size error");
+    }
+
+    for (int i=0 ; i < data.size() ; i++)
+    {
+        for (int j=0 ; j < data[0].size() ; j++)
+        {
+            data[i][j] -= rhs.data[i][j];
+        }
+    }
+    return *this; // return the result by reference
+}
+
+//overload -
+matrix operator-(matrix lhs, const matrix& rhs)
+{
+    if(lhs.data.size() != rhs.data.size() || lhs.data[0].size() != rhs.data[0].size()) {
+        throw ("mismatch size error");
+    }
+
+    for (int i=0 ; i < lhs.data.size() ; i++)
+    {
+        for (int j=0 ; j < lhs.data[0].size() ; j++)
+        {
+            lhs.data[i][j] -= rhs.data[i][j];
+        }
+    }
+    return lhs; // return the result by value (uses move constructor)
+}
+
+
+//overload *=
+matrix& matrix::operator*=(const matrix& rhs)
+{
+    if(data[0].size() != rhs.data.size()) {
+        throw ("mismatch size error");
+    }
+
+    for (int i=0 ; i < data.size() ; i++)
+    {
+        for (int j=0 ; j < data[0].size() ; j++)
+        {
+            data[i][j] *= rhs.data[i][j];
+        }
+    }
+    return *this; // return the result by reference
+}
+
+//overload *
+matrix operator*(matrix lhs, const matrix& rhs)
+{
+    if(lhs.data[0].size() != rhs.data.size()) {
+        throw ("mismatch size error");
+    }
+
+    matrix tmp(lhs.data.size(), rhs.data[0].size());
+    int i, j, k;
+    for (i = 0; i < lhs.data.size(); i++)
+    {
+        for (j = 0; j < rhs.data[0].size(); j++)
+        {
+            tmp.data[i][j] = 0;
+            for (k = 0; k < rhs.data.size(); k++)
+                tmp.data[i][j] += lhs.data[i][k] * rhs.data[k][j];
+        }
+    }
+
+    return tmp; // return the result by value (uses move constructor)
 }

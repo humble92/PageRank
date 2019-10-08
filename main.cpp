@@ -7,20 +7,18 @@ using namespace std;
 int main() {
     cout << fixed << setprecision(3);
 
+    double a[] = { 10.1001, 20, 30, 40};
+    double b[] = { 10.1001, 20.000000000000001, 30, 40};
     //constructor test
     matrix m;
     matrix m1(2);
     matrix m2(3,4);
-    double a[] = { 10.1001, 20, 30, 40};
     matrix m3(4, a);
 
     m2.set_value(0,0,2.0);
     cout << m2.get_value(0,0) << endl;
-    m2.clear();
-    m3.clear();
 
     //constructor test
-    double b[] = { 10.1001, 20.000000000000001, 30, 40};
     matrix m4(4, a);
     matrix m5(4, b);
     m4++;
@@ -32,10 +30,27 @@ int main() {
     if (m4 == m5) cout << "!!" <<endl;
         else cout << ":(" <<endl;
 
-    matrix m6 = m5;
-    cout << m6 <<endl;
+    matrix m6 (m5);
+    cout << "m6 : " <<endl << m6 <<endl;
+    cout << "m5 : " <<endl << m5 <<endl;
     m6 = m3;
-    cout << m6 <<endl;
+    cout << "m6 again after assignment : " <<endl << m6 <<endl;
+
+    m1 = m5 + m5;
+
+    m3 = m5 - m5;
+    cout << "m3 (= m5 - m5) : " <<endl << m3 <<endl;
+    m3 -= m5;
+    cout << "m3 (-= m5) : " <<endl << m3 <<endl;
+
+    matrix m21(4, 3);
+    m2++;
+    m21++;
+    cout << "m2 : " <<endl << m2 <<endl;
+    cout << "m21 : " <<endl << m21 <<endl;
+    matrix mm = m2 * m21;
+    cout << "mm : " <<endl << mm <<endl;
+
 
     return 0;
 }

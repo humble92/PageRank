@@ -30,26 +30,8 @@ public:
     //constructor matrix(int size, arr[]) where size is int
     matrix(int size, double arr[]);
 
-//    matrix(const matrix& v) {
-//        for (unsigned i = 0; i < v.data.size(); i++) {
-//            data.push_back(vector<double>(v.data[0].size(), 0.0));
-//            for (unsigned j=0 ; j < v.data[0].size() ; j++)
-//            {
-//                data[i][j] = v.data[i][j];
-//            }
-//        }
-//    }
-
-    void mySwap(matrix& first, matrix& second)
-    {
-        swap(first.data, second.data); //using std::swap
-    }
-
-    matrix& operator=(matrix other)
-    {
-        mySwap(*this, other);
-        return *this;
-    }
+    //copy constructor
+    matrix(const matrix& v);
 
     //set value
     void set_value(int m, int n, double val);
@@ -80,13 +62,34 @@ public:
     // Define postfix decrement operator.
     matrix operator--(int);
 
+    //overloading assignment operator
+    friend void mySwap(matrix& first, matrix& second);
+    matrix& operator=(matrix other);
+
+    //overload +=
+    matrix& operator+=(const matrix& rhs);
+
+    //overload +
+    // passing lhs by value helps optimize chained a+b+c
+    friend matrix operator+(matrix lhs, const matrix& rhs);
+
+    //overload -=
+    matrix& operator-=(const matrix& rhs);
+
+    //overload -
+    // passing lhs by value helps optimize chained a-b-c
+    friend matrix operator-(matrix lhs, const matrix& rhs);
+
+    //overload *=
+    matrix& operator*=(const matrix& rhs);
+
+    //overload *
+    // passing lhs by value helps optimize chained a*b*c
+    friend matrix operator*(matrix lhs, const matrix& rhs);
+
     // automatically destroyed
 //    ~matrix()
 //    {
-//        for (int i=0 ; i < this->data.size() ; i++)
-//        {
-//            this->data[i].clear();
-//        }
 //        this->data.clear();
 //    }
 
