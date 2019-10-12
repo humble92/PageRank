@@ -15,7 +15,7 @@
 using namespace std;
 
 class matrix {
-private:
+protected:
     vector<vector<double>> data;
 public:
     //default constructor
@@ -28,23 +28,23 @@ public:
     matrix(int m, int n);
 
     //constructor matrix(int size, arr[]) where size is int
-    matrix(int size, double arr[]);
+    matrix(int size, const double arr[]);
 
     //copy constructor
-    matrix(const matrix& v);
+    matrix(const matrix& v) : data(v.data) {}
 
     //set value
     void set_value(int m, int n, double val);
 
     //get value
-    const double get_value(int m, int n);
+    double get_value(const int m, const int n) const;
 
     //clear to 0.0
     void clear();
 
     // operator << overloading
-    //friend istream & operator >> (istream &in,  matrix m) {}
-    friend ostream & operator << (ostream &out, const matrix m);
+    friend ostream & operator << (ostream &out, const matrix& m);
+    //friend istream & operator >> (istream &in,  matrix& m) {}
 
     // operator ==, != overloading
     friend bool operator==(const matrix& lhs, const matrix& rhs);

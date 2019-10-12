@@ -34,8 +34,8 @@ matrix::matrix(int m, int n) {
     }
 }
 
-//constructor matrix(int size, arr[]) where size is int
-matrix::matrix(int size, double arr[]) {
+//constructor matrix(size, arr[]) where size is int
+matrix::matrix(int size, const double arr[]) {
     if( float(sqrt(size)) != ceil(sqrt(size))) {
         throw ("out of range error");
     } else {
@@ -46,9 +46,10 @@ matrix::matrix(int size, double arr[]) {
     }
 }
 
-matrix::matrix(const matrix& v) {
-    data = v.data;
-}
+//implemented using member initializer
+//matrix::matrix(const matrix& v) {
+//    data = v.data;
+//}
 
 //set value
 void matrix::set_value(int m, int n, double val) {
@@ -60,7 +61,7 @@ void matrix::set_value(int m, int n, double val) {
 }
 
 //get value
-const double matrix::get_value(int m, int n) {
+double matrix::get_value(const int m, const int n) const {
     if( m<0 || n<0 || m >= data.size() ||  n >= data[0].size()) {
         throw ("out of range error");
     }
@@ -79,7 +80,7 @@ void matrix::clear() {
 }
 
 // operator << overloading
-ostream & operator << (ostream &out, const matrix m) {
+ostream & operator << (ostream &out, const matrix& m) {
     for (int i=0 ; i < m.data.size() ; i++)
     {
         for (int j=0 ; j < m.data[0].size() ; j++)
@@ -193,7 +194,7 @@ matrix& matrix::operator+=(const matrix& rhs)
             data[i][j] += rhs.data[i][j];
         }
     }
-    return *this; // return the result by reference
+    return *this;
 }
 
 //overload +
@@ -211,7 +212,7 @@ matrix operator+(matrix lhs, const matrix& rhs)
             lhs.data[i][j] += rhs.data[i][j];
         }
     }
-    return lhs; // return the result by value (uses move constructor)
+    return lhs;
 }
 
 //overload -=
@@ -228,7 +229,7 @@ matrix& matrix::operator-=(const matrix& rhs)
             data[i][j] -= rhs.data[i][j];
         }
     }
-    return *this; // return the result by reference
+    return *this;
 }
 
 //overload -
@@ -245,7 +246,7 @@ matrix operator-(matrix lhs, const matrix& rhs)
             lhs.data[i][j] -= rhs.data[i][j];
         }
     }
-    return lhs; // return the result by value (uses move constructor)
+    return lhs;
 }
 
 
@@ -263,7 +264,7 @@ matrix& matrix::operator*=(const matrix& rhs)
             data[i][j] *= rhs.data[i][j];
         }
     }
-    return *this; // return the result by reference
+    return *this;
 }
 
 //overload *

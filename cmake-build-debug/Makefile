@@ -123,6 +123,33 @@ PageRank/fast:
 	$(MAKE) -f CMakeFiles/PageRank.dir/build.make CMakeFiles/PageRank.dir/build
 .PHONY : PageRank/fast
 
+connectivity.o: connectivity.cpp.o
+
+.PHONY : connectivity.o
+
+# target to build an object file
+connectivity.cpp.o:
+	$(MAKE) -f CMakeFiles/PageRank.dir/build.make CMakeFiles/PageRank.dir/connectivity.cpp.o
+.PHONY : connectivity.cpp.o
+
+connectivity.i: connectivity.cpp.i
+
+.PHONY : connectivity.i
+
+# target to preprocess a source file
+connectivity.cpp.i:
+	$(MAKE) -f CMakeFiles/PageRank.dir/build.make CMakeFiles/PageRank.dir/connectivity.cpp.i
+.PHONY : connectivity.cpp.i
+
+connectivity.s: connectivity.cpp.s
+
+.PHONY : connectivity.s
+
+# target to generate assembly for a file
+connectivity.cpp.s:
+	$(MAKE) -f CMakeFiles/PageRank.dir/build.make CMakeFiles/PageRank.dir/connectivity.cpp.s
+.PHONY : connectivity.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -186,6 +213,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... PageRank"
 	@echo "... edit_cache"
+	@echo "... connectivity.o"
+	@echo "... connectivity.i"
+	@echo "... connectivity.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

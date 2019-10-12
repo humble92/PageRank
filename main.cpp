@@ -1,17 +1,28 @@
 #include <iostream>
+#include <fstream>
 #include <sstream>
-#include "matrix.hpp"
+#include <algorithm>
+#include <iterator>
+
+#include "connectivity.hpp"
+
+using namespace std;
+const string filename = "../connectivity.txt";
+const string delimiter  = " ";
 
 using namespace std;
 
 int main() {
+
+    matrix m = connectivity(filename, delimiter);
+    cout << m << endl;
+
     cout << fixed << setprecision(3);
 
     double a[] = { 10.1001, 20, 30, 40};
     double b[] = { 10.1001, 20.000000000000001, 30, 40};
     //constructor test
-    matrix m;
-    matrix m1(2);
+    matrix m1 = connectivity(2);
     matrix m2(3,4);
     matrix m3(4, a);
 
