@@ -7,6 +7,7 @@ CMakeFiles/PageRank.dir/connectivity.cpp.o: ../matrix.hpp
 
 CMakeFiles/PageRank.dir/main.cpp.o: ../connectivity.hpp
 CMakeFiles/PageRank.dir/main.cpp.o: ../main.cpp
+CMakeFiles/PageRank.dir/main.cpp.o: ../main.hpp
 CMakeFiles/PageRank.dir/main.cpp.o: ../matrix.hpp
 CMakeFiles/PageRank.dir/main.cpp.o: ../transition.hpp
 

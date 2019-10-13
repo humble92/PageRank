@@ -14,6 +14,8 @@ public:
     connectivity(string filename, string delimiter = dafaultDelimiter);
     friend class transition;
 
+    int getMatrixSize() const;
+
 private:
     bool analyseValidity();
     vector<int> importance;

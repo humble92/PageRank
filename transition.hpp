@@ -14,5 +14,4 @@ public:
 private:
 };
 
-
 #endif //PAGERANK_TRANSITION_HPP

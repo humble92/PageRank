@@ -66,3 +66,8 @@ bool connectivity::analyseValidity() {
 
     return true;
 }
+
+int connectivity::getMatrixSize() const {
+    return matrixSize;
+}
+
