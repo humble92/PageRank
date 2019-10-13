@@ -204,32 +204,32 @@ matrix.cpp.s:
 	$(MAKE) -f CMakeFiles/PageRank.dir/build.make CMakeFiles/PageRank.dir/matrix.cpp.s
 .PHONY : matrix.cpp.s
 
-probability.o: probability.cpp.o
+transition.o: transition.cpp.o
 
-.PHONY : probability.o
+.PHONY : transition.o
 
 # target to build an object file
-probability.cpp.o:
-	$(MAKE) -f CMakeFiles/PageRank.dir/build.make CMakeFiles/PageRank.dir/probability.cpp.o
-.PHONY : probability.cpp.o
+transition.cpp.o:
+	$(MAKE) -f CMakeFiles/PageRank.dir/build.make CMakeFiles/PageRank.dir/transition.cpp.o
+.PHONY : transition.cpp.o
 
-probability.i: probability.cpp.i
+transition.i: transition.cpp.i
 
-.PHONY : probability.i
+.PHONY : transition.i
 
 # target to preprocess a source file
-probability.cpp.i:
-	$(MAKE) -f CMakeFiles/PageRank.dir/build.make CMakeFiles/PageRank.dir/probability.cpp.i
-.PHONY : probability.cpp.i
+transition.cpp.i:
+	$(MAKE) -f CMakeFiles/PageRank.dir/build.make CMakeFiles/PageRank.dir/transition.cpp.i
+.PHONY : transition.cpp.i
 
-probability.s: probability.cpp.s
+transition.s: transition.cpp.s
 
-.PHONY : probability.s
+.PHONY : transition.s
 
 # target to generate assembly for a file
-probability.cpp.s:
-	$(MAKE) -f CMakeFiles/PageRank.dir/build.make CMakeFiles/PageRank.dir/probability.cpp.s
-.PHONY : probability.cpp.s
+transition.cpp.s:
+	$(MAKE) -f CMakeFiles/PageRank.dir/build.make CMakeFiles/PageRank.dir/transition.cpp.s
+.PHONY : transition.cpp.s
 
 # Help Target
 help:
@@ -249,9 +249,9 @@ help:
 	@echo "... matrix.o"
 	@echo "... matrix.i"
 	@echo "... matrix.s"
-	@echo "... probability.o"
-	@echo "... probability.i"
-	@echo "... probability.s"
+	@echo "... transition.o"
+	@echo "... transition.i"
+	@echo "... transition.s"
 .PHONY : help
 
 

@@ -5,7 +5,7 @@
 #include <iterator>
 
 #include "connectivity.hpp"
-#include "probability.hpp"
+#include "transition.hpp"
 
 using namespace std;
 const string filename = "../connectivity.txt";
@@ -18,10 +18,8 @@ int main() {
     matrix m = connectivity(filename, delimiter);
     matrix * m0 = new connectivity(filename, delimiter);
 
-
-    cout << *m0 << endl;
-
-    matrix p = probability((connectivity*) m0);
+    matrix p = transition((connectivity*) m0);
+    cout << p << endl;
 
     cout << fixed << setprecision(3);
 

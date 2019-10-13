@@ -39,6 +39,9 @@ public:
     //get value
     double get_value(const int m, const int n) const;
 
+    //get data
+    const vector<vector<double>> &getData() const;
+
     //clear to 0.0
     void clear();
 

@@ -68,6 +68,11 @@ double matrix::get_value(const int m, const int n) const {
     return data[m][n];
 }
 
+//get data
+const vector<vector<double>> &matrix::getData() const {
+    return data;
+}
+
 //clear to 0.0
 void matrix::clear() {
     for (int i=0 ; i < data.size() ; i++)
@@ -198,7 +203,6 @@ matrix& matrix::operator+=(const matrix& rhs)
 }
 
 //overload +
-// friends defined inside class body are inline and are hidden from non-ADL lookup
 matrix operator+(matrix lhs, const matrix& rhs)
 {
     if(lhs.data.size() != rhs.data.size() || lhs.data[0].size() != rhs.data[0].size()) {

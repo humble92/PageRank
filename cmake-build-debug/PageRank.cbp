@@ -95,10 +95,10 @@
 		<Unit filename="/cygdrive/c/Project/repos/CLionProjects/Lab/PageRank/matrix.hpp">
 			<Option target="PageRank"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/Project/repos/CLionProjects/Lab/PageRank/probability.cpp">
+		<Unit filename="/cygdrive/c/Project/repos/CLionProjects/Lab/PageRank/transition.cpp">
 			<Option target="PageRank"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/Project/repos/CLionProjects/Lab/PageRank/probability.hpp">
+		<Unit filename="/cygdrive/c/Project/repos/CLionProjects/Lab/PageRank/transition.hpp">
 			<Option target="PageRank"/>
 		</Unit>
 		<Unit filename="/cygdrive/c/Project/repos/CLionProjects/Lab/PageRank/CMakeLists.txt">

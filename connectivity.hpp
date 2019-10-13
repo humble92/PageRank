@@ -11,7 +11,7 @@ class connectivity : public matrix {
 public:
     connectivity() = default;
     connectivity(string filename, string delimiter);
-    friend class probability;
+    friend class transition;
 
 private:
     bool analyseValidity();
