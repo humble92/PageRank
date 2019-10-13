@@ -8,7 +8,13 @@ CMakeFiles/PageRank.dir/connectivity.cpp.o: ../matrix.hpp
 CMakeFiles/PageRank.dir/main.cpp.o: ../connectivity.hpp
 CMakeFiles/PageRank.dir/main.cpp.o: ../main.cpp
 CMakeFiles/PageRank.dir/main.cpp.o: ../matrix.hpp
+CMakeFiles/PageRank.dir/main.cpp.o: ../probability.hpp
 
 CMakeFiles/PageRank.dir/matrix.cpp.o: ../matrix.cpp
 CMakeFiles/PageRank.dir/matrix.cpp.o: ../matrix.hpp
+
+CMakeFiles/PageRank.dir/probability.cpp.o: ../connectivity.hpp
+CMakeFiles/PageRank.dir/probability.cpp.o: ../matrix.hpp
+CMakeFiles/PageRank.dir/probability.cpp.o: ../probability.cpp
+CMakeFiles/PageRank.dir/probability.cpp.o: ../probability.hpp
 

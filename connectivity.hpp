@@ -10,11 +10,13 @@
 class connectivity : public matrix {
 public:
     connectivity() = default;
-    connectivity(int m) : matrix(m) {}
     connectivity(string filename, string delimiter);
+    friend class probability;
 
 private:
-    bool validateConnectivity();
+    bool analyseValidity();
+    vector<int> importance;
+    int matrixSize;
 };
 
 #endif //PAGERANK_CONNECTIVITY_HPP

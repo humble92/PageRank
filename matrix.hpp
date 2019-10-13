@@ -88,10 +88,10 @@ public:
     friend matrix operator*(matrix lhs, const matrix& rhs);
 
     // automatically destroyed
-//    ~matrix()
-//    {
-//        this->data.clear();
-//    }
+    ~matrix()
+    {
+        this->data.clear();
+    }
 
 };
 

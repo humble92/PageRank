@@ -32,15 +32,20 @@ connectivity::connectivity(string filename, string delimiter) {
     }
     inputFile.close();
 
-    if(!validateConnectivity()) {
+    if(!analyseValidity()) {
+        data.clear();
+        matrixSize = 0;
+        importance.clear();
         throw ("File contents are not valid for connectivity matrix. It should be for square matrix with only 0 or 1.");
     }
 
 }
 
-bool connectivity::validateConnectivity() {
+bool connectivity::analyseValidity() {
     int rowSize = data.size();
     int colSize = data[0].size();
+    matrixSize = rowSize;
+    int importanceJ;
 
     for (int i=0 ; i < rowSize ; i++)
     {
@@ -48,12 +53,15 @@ bool connectivity::validateConnectivity() {
             return false;
         }
 
+        importanceJ = 0;
         for (int j=0 ; j < colSize ; j++)
         {
             if(data[i][j] != 0.0 && data[i][j] != 1.0) {
                 return false;
             }
+            importanceJ += data[i][j];
         }
+        importance.push_back(importanceJ);
     }
 
     return true;

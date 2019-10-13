@@ -5,6 +5,7 @@
 #include <iterator>
 
 #include "connectivity.hpp"
+#include "probability.hpp"
 
 using namespace std;
 const string filename = "../connectivity.txt";
@@ -15,14 +16,18 @@ using namespace std;
 int main() {
 
     matrix m = connectivity(filename, delimiter);
-    cout << m << endl;
+    matrix * m0 = new connectivity(filename, delimiter);
+
+
+    cout << *m0 << endl;
+
+    matrix p = probability((connectivity*) m0);
 
     cout << fixed << setprecision(3);
 
     double a[] = { 10.1001, 20, 30, 40};
     double b[] = { 10.1001, 20.000000000000001, 30, 40};
     //constructor test
-    matrix m1 = connectivity(2);
     matrix m2(3,4);
     matrix m3(4, a);
 
@@ -47,7 +52,7 @@ int main() {
     m6 = m3;
     cout << "m6 again after assignment : " <<endl << m6 <<endl;
 
-    m1 = m5 + m5;
+    matrix m1 = m5 + m5;
 
     m3 = m5 - m5;
     cout << "m3 (= m5 - m5) : " <<endl << m3 <<endl;
@@ -62,6 +67,6 @@ int main() {
     matrix mm = m2 * m21;
     cout << "mm : " <<endl << mm <<endl;
 
-
+    delete m0;
     return 0;
 }

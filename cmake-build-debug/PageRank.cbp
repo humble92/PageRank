@@ -95,6 +95,12 @@
 		<Unit filename="/cygdrive/c/Project/repos/CLionProjects/Lab/PageRank/matrix.hpp">
 			<Option target="PageRank"/>
 		</Unit>
+		<Unit filename="/cygdrive/c/Project/repos/CLionProjects/Lab/PageRank/probability.cpp">
+			<Option target="PageRank"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Project/repos/CLionProjects/Lab/PageRank/probability.hpp">
+			<Option target="PageRank"/>
+		</Unit>
 		<Unit filename="/cygdrive/c/Project/repos/CLionProjects/Lab/PageRank/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
