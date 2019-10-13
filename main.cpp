@@ -9,19 +9,19 @@
 
 using namespace std;
 const string filename = "../connectivity.txt";
-const string delimiter  = " ";
+const int precision = 3;
 
 using namespace std;
 
 int main() {
 
-    matrix m = connectivity(filename, delimiter);
-    matrix * m0 = new connectivity(filename, delimiter);
+    matrix m = connectivity(filename);
+    matrix * m0 = new connectivity(filename);
 
     matrix p = transition((connectivity*) m0);
     cout << p << endl;
 
-    cout << fixed << setprecision(3);
+    cout << fixed << setprecision(precision);
 
     double a[] = { 10.1001, 20, 30, 40};
     double b[] = { 10.1001, 20.000000000000001, 30, 40};

@@ -6,11 +6,12 @@
 #define PAGERANK_CONNECTIVITY_HPP
 
 #include "matrix.hpp"
+const string dafaultDelimiter  = " ";
 
 class connectivity : public matrix {
 public:
     connectivity() = default;
-    connectivity(string filename, string delimiter);
+    connectivity(string filename, string delimiter = dafaultDelimiter);
     friend class transition;
 
 private:
