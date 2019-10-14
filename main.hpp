@@ -5,7 +5,7 @@
 #ifndef PAGERANK_MAIN_HPP
 #define PAGERANK_MAIN_HPP
 
-double * getRankMatrix(matrix *pMatrix);
+void getRankMatrix(transition *pTransition, double col[], int size);
 
 
 #endif //PAGERANK_MAIN_HPP
