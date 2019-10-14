@@ -7,7 +7,7 @@
 
 void getRankMatrix(matrix *pTransition, matrix &rank);
 void normalize(matrix &matrix);
-void printoutRank(matrix *pMatrix);
+void printRank(matrix *pMatrix);
 
 
 #endif //PAGERANK_MAIN_HPP

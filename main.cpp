@@ -22,15 +22,15 @@ int main() {
     cout << "Connectivity Matirx: " << endl << *conMatrix << endl;
 
     cout << fixed << setprecision(precision);
+    int size = ((connectivity *) conMatrix)->getMatrixSize();
 
     //do Markov process
     matrix * trMatrix = new transition((connectivity*) conMatrix);
-    int size = trMatrix->getData().size();
     matrix rankMatrix(size, 1);
     getRankMatrix(trMatrix, rankMatrix);
 
     //output
-    printoutRank(&rankMatrix);
+    printRank(&rankMatrix);
 
     //free memory
     delete conMatrix;
@@ -72,11 +72,11 @@ void normalize(matrix &rank) {
 }
 
 //print user friendly value ( %)
-void printoutRank(matrix *rankMatrix) {
+void printRank(matrix *pMatrix) {
     cout << "[Page Rank]" << endl;
     char ch('A');
-    for (int i=0 ; i < rankMatrix->getData().size() ; i++)
+    for (int i=0 ; i < pMatrix->getData().size() ; i++)
     {
-        cout << "Page " << ch++ << ": " << setw(valWidth) << rankMatrix->get_value(i, 0) * 100.0 << "%" << endl;
+        cout << "Page " << ch++ << ": " << setw(valWidth) << pMatrix->get_value(i, 0) * 100.0 << "%" << endl;
     }
 }
