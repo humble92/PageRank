@@ -10,8 +10,8 @@
 
 using namespace std;
 const string filename = "../connectivity.txt";
-const int precision = 4;
-
+const int precision = 2;
+const int valWidth = 5;
 
 using namespace std;
 
@@ -23,57 +23,16 @@ int main() {
 
     cout << fixed << setprecision(precision);
 
-    //processing
+    //do Markov process
     matrix * trMatrix = new transition((connectivity*) conMatrix);
     int size = trMatrix->getData().size();
-    double col[size];
-    getRankMatrix( (transition *) trMatrix, col, size);
+    matrix rankMatrix(size, 1);
+    getRankMatrix(trMatrix, (matrix &) rankMatrix);
 
     //output
-    cout << "[Result] Rank Matirx: " << endl << *col << endl;
+    printoutRank(&rankMatrix);
 
-/*    double a[] = { 10.1001, 20, 30, 40};
-    double b[] = { 10.1001, 20.000000000000001, 30, 40};
-    //constructor test
-    matrix m2(3,4);
-    matrix m3(4, a);
-
-    m2.set_value(0,0,2.0);
-    cout << m2.get_value(0,0) << endl;
-
-    //constructor test
-    matrix m4(4, a);
-    matrix m5(4, b);
-    m4++;
-    m4--;
-    ++m5;
-    --m5;
-    cout << m4 <<endl;
-    cout << m5 <<endl;
-    if (m4 == m5) cout << "!!" <<endl;
-        else cout << ":(" <<endl;
-
-    matrix m6 (m5);
-    cout << "m6 : " <<endl << m6 <<endl;
-    cout << "m5 : " <<endl << m5 <<endl;
-    m6 = m3;
-    cout << "m6 again after assignment : " <<endl << m6 <<endl;
-
-    matrix m1 = m5 + m5;
-
-    m3 = m5 - m5;
-    cout << "m3 (= m5 - m5) : " <<endl << m3 <<endl;
-    m3 -= m5;
-    cout << "m3 (-= m5) : " <<endl << m3 <<endl;
-
-    matrix m21(4, 3);
-    m2++;
-    m21++;
-    cout << "m2 : " <<endl << m2 <<endl;
-    cout << "m21 : " <<endl << m21 <<endl;
-    matrix mm = m2 * m21;
-    cout << "mm : " <<endl << mm <<endl;*/
-
+    //free memory
     delete conMatrix;
     delete trMatrix;
 
@@ -81,9 +40,43 @@ int main() {
 }
 
 //Do Markov process - rank process
-void getRankMatrix(transition *pTransition, double * col, int size) {
-    fill_n(col, size, 1);
-    col[0] = 0;
-    col[3] = 0;
+void getRankMatrix(matrix *pTransition, matrix &rank) {
+    int size = rank.getData().size();
+    for (int i=0 ; i < size ; i++)
+    {
+        rank.set_value(i, 0, 1.0);
+    }
+
+    matrix tmp;
+    do {
+        tmp = rank;
+        rank = *pTransition * rank;
+    } while(tmp != rank);
+
+    normalize(rank);
 }
 
+//divide each value by sum
+void normalize(matrix &rank) {
+    int size = rank.getData().size();
+    double sum = 0.0;
+    for (int i=0 ; i < size ; i++)
+    {
+        sum += rank.get_value(i, 0);
+    }
+
+    for (int i=0 ; i < size ; i++)
+    {
+        rank.set_value(i, 0, rank.get_value(i, 0) / sum);
+    }
+}
+
+//print user friendly value ( %)
+void printoutRank(matrix *rankMatrix) {
+    cout << "[Page Rank]" << endl;
+    char ch('A');
+    for (int i=0 ; i < rankMatrix->getData().size() ; i++)
+    {
+        cout << "Page " << ch++ << ": " << setw(valWidth) << rankMatrix->get_value(i, 0) * 100.0 << "%" << endl;
+    }
+}

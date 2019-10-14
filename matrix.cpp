@@ -46,11 +46,6 @@ matrix::matrix(int size, const double arr[]) {
     }
 }
 
-//implemented using member initializer
-//matrix::matrix(const matrix& v) {
-//    data = v.data;
-//}
-
 //set value
 void matrix::set_value(int m, int n, double val) {
     if( m<0 || n<0 || m >= data.size() ||  n >= data[0].size()) {
@@ -75,9 +70,9 @@ const vector<vector<double>> &matrix::getData() const {
 
 //clear to 0.0
 void matrix::clear() {
-    for (int i=0 ; i < data.size() ; i++)
+    for (unsigned i=0 ; i < data.size() ; i++)
     {
-        for (int j=0 ; j < data[0].size() ; j++)
+        for (unsigned j=0 ; j < data[0].size() ; j++)
         {
             data[i][j] = 0.0;
         }
@@ -86,9 +81,9 @@ void matrix::clear() {
 
 // operator << overloading
 ostream & operator << (ostream &out, const matrix& m) {
-    for (int i=0 ; i < m.data.size() ; i++)
+    for (unsigned i=0 ; i < m.data.size() ; i++)
     {
-        for (int j=0 ; j < m.data[0].size() ; j++)
+        for (unsigned j=0 ; j < m.data[0].size() ; j++)
         {
             out << setw(8) << m.data[i][j];
         }
@@ -102,9 +97,9 @@ bool operator==(const matrix& lhs, const matrix& rhs) {
     if(lhs.data.size() != rhs.data.size() || lhs.data[0].size() != rhs.data[0].size()) {
         return false;
     } else {
-        for (int i=0 ; i < lhs.data.size() ; i++)
+        for (unsigned i=0 ; i < lhs.data.size() ; i++)
         {
-            for (int j=0 ; j < lhs.data[0].size() ; j++)
+            for (unsigned j=0 ; j < lhs.data[0].size() ; j++)
             {
                 //if(lhs.data[i][j] != rhs.data[i][j])
                 if(fabs(lhs.data[i][j] - rhs.data[i][j]) >= DBL_EPSILON)
@@ -121,9 +116,9 @@ bool operator!=(const matrix& lhs, const matrix& rhs){ return !(lhs == rhs); }
 // Define prefix increment operator.
 matrix& matrix::operator++()
 {
-    for (int i=0 ; i < this->data.size() ; i++)
+    for (unsigned i=0 ; i < this->data.size() ; i++)
     {
-        for (int j=0 ; j < this->data[0].size() ; j++)
+        for (unsigned j=0 ; j < this->data[0].size() ; j++)
         {
             this->data[i][j] += 1.0;
         }
@@ -135,9 +130,9 @@ matrix& matrix::operator++()
 matrix matrix::operator++(int)
 {
     matrix tmp(*this);
-    for (int i=0 ; i < this->data.size() ; i++)
+    for (unsigned i=0 ; i < this->data.size() ; i++)
     {
-        for (int j=0 ; j < this->data[0].size() ; j++)
+        for (unsigned j=0 ; j < this->data[0].size() ; j++)
         {
             this->data[i][j] += 1.0;
         }
@@ -148,9 +143,9 @@ matrix matrix::operator++(int)
 // Define prefix decrement operator.
 matrix& matrix::operator--()
 {
-    for (int i=0 ; i < this->data.size() ; i++)
+    for (unsigned i=0 ; i < this->data.size() ; i++)
     {
-        for (int j=0 ; j < this->data[0].size() ; j++)
+        for (unsigned j=0 ; j < this->data[0].size() ; j++)
         {
             this->data[i][j] -= 1.0;
         }
@@ -162,9 +157,9 @@ matrix& matrix::operator--()
 matrix matrix::operator--(int)
 {
     matrix tmp(*this);
-    for (int i=0 ; i < this->data.size() ; i++)
+    for (unsigned i=0 ; i < this->data.size() ; i++)
     {
-        for (int j=0 ; j < this->data[0].size() ; j++)
+        for (unsigned j=0 ; j < this->data[0].size() ; j++)
         {
             this->data[i][j] -= 1.0;
         }
@@ -192,9 +187,9 @@ matrix& matrix::operator+=(const matrix& rhs)
         throw ("mismatch size error");
     }
 
-    for (int i=0 ; i < data.size() ; i++)
+    for (unsigned i=0 ; i < data.size() ; i++)
     {
-        for (int j=0 ; j < data[0].size() ; j++)
+        for (unsigned j=0 ; j < data[0].size() ; j++)
         {
             data[i][j] += rhs.data[i][j];
         }
@@ -209,9 +204,9 @@ matrix operator+(matrix lhs, const matrix& rhs)
         throw ("mismatch size error");
     }
 
-    for (int i=0 ; i < lhs.data.size() ; i++)
+    for (unsigned i=0 ; i < lhs.data.size() ; i++)
     {
-        for (int j=0 ; j < lhs.data[0].size() ; j++)
+        for (unsigned j=0 ; j < lhs.data[0].size() ; j++)
         {
             lhs.data[i][j] += rhs.data[i][j];
         }
@@ -226,9 +221,9 @@ matrix& matrix::operator-=(const matrix& rhs)
         throw ("mismatch size error");
     }
 
-    for (int i=0 ; i < data.size() ; i++)
+    for (unsigned i=0 ; i < data.size() ; i++)
     {
-        for (int j=0 ; j < data[0].size() ; j++)
+        for (unsigned j=0 ; j < data[0].size() ; j++)
         {
             data[i][j] -= rhs.data[i][j];
         }
@@ -243,9 +238,9 @@ matrix operator-(matrix lhs, const matrix& rhs)
         throw ("mismatch size error");
     }
 
-    for (int i=0 ; i < lhs.data.size() ; i++)
+    for (unsigned i=0 ; i < lhs.data.size() ; i++)
     {
-        for (int j=0 ; j < lhs.data[0].size() ; j++)
+        for (unsigned j=0 ; j < lhs.data[0].size() ; j++)
         {
             lhs.data[i][j] -= rhs.data[i][j];
         }
@@ -261,9 +256,9 @@ matrix& matrix::operator*=(const matrix& rhs)
         throw ("mismatch size error");
     }
 
-    for (int i=0 ; i < data.size() ; i++)
+    for (unsigned i=0 ; i < data.size() ; i++)
     {
-        for (int j=0 ; j < data[0].size() ; j++)
+        for (unsigned j=0 ; j < data[0].size() ; j++)
         {
             data[i][j] *= rhs.data[i][j];
         }
@@ -279,7 +274,7 @@ matrix operator*(matrix lhs, const matrix& rhs)
     }
 
     matrix tmp(lhs.data.size(), rhs.data[0].size());
-    int i, j, k;
+    unsigned i, j, k;
     for (i = 0; i < lhs.data.size(); i++)
     {
         for (j = 0; j < rhs.data[0].size(); j++)
