@@ -27,7 +27,7 @@ int main() {
     matrix * trMatrix = new transition((connectivity*) conMatrix);
     int size = trMatrix->getData().size();
     matrix rankMatrix(size, 1);
-    getRankMatrix(trMatrix, (matrix &) rankMatrix);
+    getRankMatrix(trMatrix, rankMatrix);
 
     //output
     printoutRank(&rankMatrix);
