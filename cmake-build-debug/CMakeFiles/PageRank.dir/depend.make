@@ -5,14 +5,17 @@ CMakeFiles/PageRank.dir/connectivity.cpp.o: ../connectivity.cpp
 CMakeFiles/PageRank.dir/connectivity.cpp.o: ../connectivity.hpp
 CMakeFiles/PageRank.dir/connectivity.cpp.o: ../matrix.hpp
 
-CMakeFiles/PageRank.dir/main.cpp.o: ../connectivity.hpp
 CMakeFiles/PageRank.dir/main.cpp.o: ../main.cpp
-CMakeFiles/PageRank.dir/main.cpp.o: ../main.hpp
-CMakeFiles/PageRank.dir/main.cpp.o: ../matrix.hpp
-CMakeFiles/PageRank.dir/main.cpp.o: ../transition.hpp
+CMakeFiles/PageRank.dir/main.cpp.o: ../pageRank.hpp
 
 CMakeFiles/PageRank.dir/matrix.cpp.o: ../matrix.cpp
 CMakeFiles/PageRank.dir/matrix.cpp.o: ../matrix.hpp
+
+CMakeFiles/PageRank.dir/pageRank.cpp.o: ../connectivity.hpp
+CMakeFiles/PageRank.dir/pageRank.cpp.o: ../matrix.hpp
+CMakeFiles/PageRank.dir/pageRank.cpp.o: ../pageRank.cpp
+CMakeFiles/PageRank.dir/pageRank.cpp.o: ../pageRank.hpp
+CMakeFiles/PageRank.dir/pageRank.cpp.o: ../transition.hpp
 
 CMakeFiles/PageRank.dir/transition.cpp.o: ../connectivity.hpp
 CMakeFiles/PageRank.dir/transition.cpp.o: ../matrix.hpp

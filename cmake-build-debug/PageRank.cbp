@@ -98,6 +98,12 @@
 		<Unit filename="/cygdrive/c/Project/repos/CLionProjects/Lab/PageRank/matrix.hpp">
 			<Option target="PageRank"/>
 		</Unit>
+		<Unit filename="/cygdrive/c/Project/repos/CLionProjects/Lab/PageRank/pageRank.cpp">
+			<Option target="PageRank"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Project/repos/CLionProjects/Lab/PageRank/pageRank.hpp">
+			<Option target="PageRank"/>
+		</Unit>
 		<Unit filename="/cygdrive/c/Project/repos/CLionProjects/Lab/PageRank/transition.cpp">
 			<Option target="PageRank"/>
 		</Unit>

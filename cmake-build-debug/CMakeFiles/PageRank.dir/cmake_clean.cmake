@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/PageRank.dir/matrix.cpp.o"
   "CMakeFiles/PageRank.dir/connectivity.cpp.o"
   "CMakeFiles/PageRank.dir/transition.cpp.o"
+  "CMakeFiles/PageRank.dir/pageRank.cpp.o"
   "PageRank.pdb"
   "PageRank.exe"
   "libPageRank.dll.a"

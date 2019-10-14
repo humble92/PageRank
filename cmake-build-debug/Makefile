@@ -204,6 +204,33 @@ matrix.cpp.s:
 	$(MAKE) -f CMakeFiles/PageRank.dir/build.make CMakeFiles/PageRank.dir/matrix.cpp.s
 .PHONY : matrix.cpp.s
 
+pageRank.o: pageRank.cpp.o
+
+.PHONY : pageRank.o
+
+# target to build an object file
+pageRank.cpp.o:
+	$(MAKE) -f CMakeFiles/PageRank.dir/build.make CMakeFiles/PageRank.dir/pageRank.cpp.o
+.PHONY : pageRank.cpp.o
+
+pageRank.i: pageRank.cpp.i
+
+.PHONY : pageRank.i
+
+# target to preprocess a source file
+pageRank.cpp.i:
+	$(MAKE) -f CMakeFiles/PageRank.dir/build.make CMakeFiles/PageRank.dir/pageRank.cpp.i
+.PHONY : pageRank.cpp.i
+
+pageRank.s: pageRank.cpp.s
+
+.PHONY : pageRank.s
+
+# target to generate assembly for a file
+pageRank.cpp.s:
+	$(MAKE) -f CMakeFiles/PageRank.dir/build.make CMakeFiles/PageRank.dir/pageRank.cpp.s
+.PHONY : pageRank.cpp.s
+
 transition.o: transition.cpp.o
 
 .PHONY : transition.o
@@ -249,6 +276,9 @@ help:
 	@echo "... matrix.o"
 	@echo "... matrix.i"
 	@echo "... matrix.s"
+	@echo "... pageRank.o"
+	@echo "... pageRank.i"
+	@echo "... pageRank.s"
 	@echo "... transition.o"
 	@echo "... transition.i"
 	@echo "... transition.s"
