@@ -89,9 +89,6 @@
 		<Unit filename="/cygdrive/c/Project/repos/CLionProjects/Lab/PageRank/main.cpp">
 			<Option target="PageRank"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/Project/repos/CLionProjects/Lab/PageRank/main.hpp">
-			<Option target="PageRank"/>
-		</Unit>
 		<Unit filename="/cygdrive/c/Project/repos/CLionProjects/Lab/PageRank/matrix.cpp">
 			<Option target="PageRank"/>
 		</Unit>

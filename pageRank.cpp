@@ -8,13 +8,13 @@
 #include "transition.hpp"
 
 using namespace std;
-const string filename = "../connectivity.txt";
 const int precision = 2;
 const int valWidth = 5;
 
 using namespace std;
 
-void pageRank::process() {
+//process for connectivity.text file and return page rank
+void pageRank::process(string filename) {
     //input
     matrix * conMatrix = new connectivity(filename);
     cout << "Connectivity Matirx: " << endl << *conMatrix << endl;

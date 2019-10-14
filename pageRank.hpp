@@ -5,6 +5,9 @@
 #ifndef PAGERANK_PAGERANK_HPP
 #define PAGERANK_PAGERANK_HPP
 
+#include <string>
+
+using namespace std;
 class matrix;
 
 class pageRank {
@@ -12,7 +15,7 @@ public:
     void getRankMatrix(matrix *pTransition, matrix &rank);
     void normalize(matrix &matrix);
     void printRank(matrix *pMatrix);
-    void process();
+    void process(string filename);
 };
 
 

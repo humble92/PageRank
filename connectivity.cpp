@@ -8,7 +8,8 @@
 
 using namespace std;
 
-connectivity::connectivity(string filename, string delimiter) {
+//generate connectivity matrix from file
+connectivity::connectivity(string filename) {
 
     ifstream inputFile(filename.data());
     if (!inputFile.is_open()) {
@@ -41,6 +42,7 @@ connectivity::connectivity(string filename, string delimiter) {
 
 }
 
+//validate matrix elements
 bool connectivity::analyseValidity() {
     int rowSize = data.size();
     int colSize = data[0].size();
@@ -67,6 +69,7 @@ bool connectivity::analyseValidity() {
     return true;
 }
 
+//getter of matrix size
 int connectivity::getMatrixSize() const {
     return matrixSize;
 }

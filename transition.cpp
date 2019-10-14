@@ -5,6 +5,7 @@
 #include "transition.hpp"
 const double randomWalkProbabilityFactor = 0.85;
 
+//constructor: generate transition matrix from connectivity matrix
 transition::transition(const connectivity* c) : matrix(c->matrixSize) {
     //step 1. matrix Q for probability teleport
     int m = c->matrixSize;

@@ -6,15 +6,13 @@
 #define PAGERANK_CONNECTIVITY_HPP
 
 #include "matrix.hpp"
-const string dafaultDelimiter  = " ";
 
 class connectivity : public matrix {
 public:
     connectivity() = default;
-    connectivity(string filename, string delimiter = dafaultDelimiter);
-    friend class transition;
-
+    connectivity(string filename);
     int getMatrixSize() const;
+    friend class transition;
 
 private:
     bool analyseValidity();
