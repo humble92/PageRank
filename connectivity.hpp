@@ -15,9 +15,9 @@ public:
     friend class transition;
 
 private:
-    bool analyseValidity();
     vector<int> importance;
     int matrixSize;
+    bool analyseValidity();
 };
 
 #endif //PAGERANK_CONNECTIVITY_HPP
